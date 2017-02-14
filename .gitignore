@@ -1,0 +1,17 @@
+# phpstorm project files
+.idea
+
+# windows thumbnail cache
+Thumbs.db
+
+# composer vendor dir
+/vendor
+
+# composer itself is not needed
+composer.lock
+
+tests/_output/*
+*.md
+
+web/upload/*
+
