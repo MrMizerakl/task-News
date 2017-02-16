@@ -11,7 +11,8 @@ Thumbs.db
 composer.lock
 
 tests/_output/*
-*.md
+LICENSE.md
 
 web/upload/*
 
+web/upload/
