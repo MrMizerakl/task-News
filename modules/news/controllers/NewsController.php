@@ -159,8 +159,8 @@ class NewsController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
 
             $dataImages = $this->saveImages($model);
-            $this->resizeImages($dataImages, 'small_', 80);
-            $this->resizeImages($dataImages, 'normal', 200);
+//            $this->resizeImages($dataImages, 'small_', 80);
+//            $this->resizeImages($dataImages, 'normal', 200);
             $this->saveTags($dataImages);
             return $this->redirect(['index']);
 

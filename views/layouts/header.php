@@ -1,6 +1,7 @@
 <?php
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
+use yii\helpers\Url;
 
 NavBar::begin([
     'brandLabel' => 'World news',
@@ -14,9 +15,9 @@ NavBar::begin([
 echo Nav::widget([
     'options' => ['class' => 'navbar-nav navbar-right'],
     'items' => [
-        ['label' => 'News', 'url' => ['/news']],
-        ['label' => 'Edit news', 'url' => ['/news/news/index']],
-        ['label' => 'Edit category', 'url' => ['/ecategory/ecategory/index']],
+        ['label' => 'News', 'url' => Url::to(['/news'])],
+        ['label' => 'Edit news', 'url' => Url::to(['/news/news/index'])],
+        ['label' => 'Edit category', 'url' => Url::to(['/ecategory/ecategory/index'])],
 
 //            Yii::$app->user->isGuest ? (
 //                ['label' => 'Login', 'url' => ['/site/login']]

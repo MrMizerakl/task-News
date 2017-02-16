@@ -28,7 +28,9 @@ use yii\widgets\LinkPager;
 
             <div>
                 <h2><a href="<?= Url::to(['default/view','id' => $row->id])?>"><?= $row->title?></a></h2>
-                <img src="/upload/<?= $row->id. '/small_'. $row->photo ?>" style="float: left; margin-top: 5px; padding-right: 15px">
+                <?php if ( $row->photo ) : ?>
+                    <img src="/upload/<?= $row->id. '/small_'. $row->photo ?>" style="float: left; margin-top: 5px; padding-right: 15px">
+                <?php endif; ?>
                 <p style="overflow: hidden; max-height: 90px; ">
                     <?= $row->text ?>
                 </p>
