@@ -64,7 +64,7 @@ class News extends \yii\db\ActiveRecord
      */
     public function getComments()
     {
-        return $this->hasMany(Comments::className(), ['idnews' => 'id']);
+        return $this->hasMany(Comments::className(), ['idnews' => 'id'])->orderBy(['id' => SORT_DESC]);
     }
 
     /**

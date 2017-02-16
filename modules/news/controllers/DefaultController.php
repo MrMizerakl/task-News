@@ -2,6 +2,7 @@
 
 namespace app\modules\news\controllers;
 
+use app\models\Comments;
 use app\models\Ecategory;
 use app\models\Tags;
 use Yii;
@@ -52,10 +53,20 @@ class DefaultController extends Controller
 
     public function actionView ( $id ){
         $model = News::findOne($id);
+
+        $comment = new Comments();
+
+        if( $comment->load(Yii::$app->request->post()) && $comment->save(false) ){
+            $comment = new Comments();
+        }
+
+        $listComments = $model->comments;
         return $this->render('view', [
             'model' => $model,
             'ecategory' => $model->category0,
-            'tags' => $model->tags
+            'tags' => $model->tags,
+            'comment' => $comment,
+            'listcomments' => $listComments,
         ]);
     }
 }

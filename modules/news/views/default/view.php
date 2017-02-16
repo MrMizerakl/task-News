@@ -1,6 +1,9 @@
 <?php
-//use app\models\Ecategory;
+use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\widgets\ActiveForm;
+use yii\widgets\Pjax;
+
 ?>
 <div id="default-view">
     <div class="text-center">
@@ -33,3 +36,65 @@ use yii\helpers\Url;
         </p>
     </div>
 </div>
+
+<div id="default-comments">
+<h3>Comments</h3>
+    <hr>
+    <div id="comments-form" class="row">
+
+        <div class="col-md-8">
+            <h4>Add comment</h4>
+
+            <?php Pjax::begin(['id'=>'new_comment']);?>
+            <?php $form = ActiveForm::begin(); ?>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <?= $form->field($comment, 'user')->textInput() ?>
+                </div>
+            </div>
+
+            <?= $form->field($comment, 'date')->hiddenInput(['value' => date("Ymd")])->label(false) ?>
+            <?= $form->field($comment, 'idnews')->hiddenInput(['value' => $model->id])->label(false) ?>
+
+            <?= $form->field($comment, 'text')->textarea() ?>
+
+            <div class="form-group">
+                <?= Html::submitButton('Post', ['class' => 'btn btn-primary']) ?>
+            </div>
+
+            <?php $form = ActiveForm::end(); ?>
+            <?php Pjax::end(); ?>
+        </div>
+
+    </div>
+    <hr>
+    <div id="comments-view">
+
+        <div class="col-md-10">
+
+            <?php Pjax::begin(['id'=>'comments']);?>
+            <?php foreach ($listcomments as $value) :?>
+
+                <blockquote>
+                    <h6><?= $value['user']?>&nbsp;&nbsp;<?= $value['date']?></h6>
+                    <p><em><?= $value['text'] ?></em></p>
+                </blockquote>
+
+            <?php endforeach; ?>
+            <?php Pjax::end();?>
+
+        </div>
+
+    </div>
+
+</div>
+<?php
+$this->registerJs(
+    '$("document").ready(function(){
+            $("#new_comment").on("pjax:end", function() {
+            $.pjax.reload({container:"#comments"});  
+        });
+    });'
+);
+?>
