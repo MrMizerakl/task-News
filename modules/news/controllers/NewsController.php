@@ -146,7 +146,7 @@ class NewsController extends Controller
         }
         return true;
     }
-
+  
     /**
      * Creates a new News model.
      * If creation is successful, the browser will be redirected to the 'view' page.

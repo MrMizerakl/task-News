@@ -15,7 +15,7 @@ NavBar::begin([
 echo Nav::widget([
     'options' => ['class' => 'navbar-nav navbar-right'],
     'items' => [
-        ['label' => 'News', 'url' => Url::to(['/news'])],
+        ['label' => 'News', 'url' => Url::to(['/news'])],  
         ['label' => 'Edit news', 'url' => Url::to(['/news/news/index'])],
         ['label' => 'Edit category', 'url' => Url::to(['/ecategory/ecategory/index'])],
 

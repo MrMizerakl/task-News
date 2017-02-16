@@ -25,7 +25,7 @@ use yii\widgets\LinkPager;
     <div class="col-md-10">
         
         <?php foreach ($model as $row): ?>
-
+  
             <div>
                 <h2><a href="<?= Url::to(['default/view','id' => $row->id])?>"><?= $row->title?></a></h2>
                 <?php if ( $row->photo ) : ?>

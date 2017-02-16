@@ -80,7 +80,7 @@ class News extends \yii\db\ActiveRecord
         $category = $this->category0;
         return $category ? $category->name : '';
     }
-
+  
     public static function getCategoryList()
     {
         $data = Ecategory::find()->all();
