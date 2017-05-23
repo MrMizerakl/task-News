@@ -16,4 +16,4 @@ LICENSE.md
 web/upload/*
 
 web/upload/
-composer.lock
+#composer.lock
