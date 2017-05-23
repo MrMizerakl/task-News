@@ -47,8 +47,8 @@ $this->title = 'Add category...';
                                     'data-method' => 'post',
                                     'data-pjax' => '0',
                                 ]
-                            );                        }
-
+                            );
+                        }
                     }
                 ]
             ],
